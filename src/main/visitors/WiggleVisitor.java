@@ -11,6 +11,7 @@ import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Transaction;
 
+import relations.DynamicLabel;
 import relations.RelationTypes;
 
 import utils.Pair;
@@ -866,6 +867,7 @@ public class WiggleVisitor extends TreePathScanner<Void, Pair<Tree, RelationType
     private void setMetaInfo(Tree tree, Node node) {
 
         node.setProperty("nodeType", tree.getClass().getSimpleName());
+        node.addLabel(new DynamicLabel(tree.getClass().getSimpleName()));
         node.setProperty("lineNumber", getLineNumber(tree));
         node.setProperty("position", getPosition(tree));
         node.setProperty("size", getSize(tree));
