@@ -1,18 +1,15 @@
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
+import com.sun.source.util.JavacTask;
 import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.factory.GraphDatabaseBuilder;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.neo4j.graphdb.factory.GraphDatabaseSettings;
-//import org.neo4j.kernel.impl.util.FileUtils;
-
 import tasklisteners.AfterAnalyze;
 
-import com.sun.source.util.JavacTask;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+//import org.neo4j.kernel.impl.util.FileUtils;
 
 
 public class WiggleIndexerPlugin implements com.sun.source.util.Plugin {
@@ -87,7 +84,7 @@ public class WiggleIndexerPlugin implements com.sun.source.util.Plugin {
         }
 
 
-        graphDbBuilder = new GraphDatabaseFactory().newEmbeddedDatabaseBuilder(wiggleDbPath).
+        graphDbBuilder = new GraphDatabaseFactory().newEmbeddedDatabaseBuilder(new File(wiggleDbPath)).
                 setConfig(GraphDatabaseSettings.node_keys_indexable, "nodeType").
                 setConfig(GraphDatabaseSettings.relationship_keys_indexable, "typeKind").
                 setConfig(GraphDatabaseSettings.node_auto_indexing, "true").

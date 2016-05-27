@@ -1,24 +1,20 @@
 package tests;
 
-import java.util.Collections;
-import java.util.List;
-
-
+import com.sun.source.tree.CompilationUnitTree;
+import com.sun.tools.javac.api.JavacTaskImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.neo4j.cypher.ExecutionEngine;
-import org.neo4j.cypher.ExecutionResult;
 import org.neo4j.graphdb.GraphDatabaseService;
-//import org.neo4j.kernel.logging.BufferingLogger;
-import org.neo4j.test.TestGraphDatabaseFactory;
 import org.neo4j.graphdb.Result;
-
+import org.neo4j.test.TestGraphDatabaseFactory;
 import tests.utils.TestUtils;
 import visitors.WiggleVisitor;
 
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.tools.javac.api.JavacTaskImpl;
+import java.util.Collections;
+import java.util.List;
+
+//import org.neo4j.kernel.logging.BufferingLogger;
 
 
 public class TypeHierarchyTest {
